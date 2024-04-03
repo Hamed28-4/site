@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post Details</title>
-</head>
-<body>
+{% extends 'html/base.html' %}
+
+    {% block title %}Post Details{% endblock %}
+
+    {% block body %}
     <h1>{{post.title}}</h1>
     <h2>{{post.description}}</h2>
     <h5>{{post.date}}</h5>
     <h5>{{post.time}}</h5>
-</body>
-</html>
+    {% endblock %}
