@@ -7,6 +7,7 @@
     <ul>
     {% for post in post %}
     <li><a href="postdetail/{{post.id}}"/><h3>{{post.title}}</h3></li/>
+        {{post.description|truncatechars:26}}
     {% endfor %}
     </ul>
     {% endblock %}
