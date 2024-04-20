@@ -10,4 +10,5 @@
         {{post.description|truncatechars:26}}
     {% endfor %}
     </ul>
+    {% include 'details/pagination.html' with page=post %}
     {% endblock %}

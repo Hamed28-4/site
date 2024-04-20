@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def home(request):
@@ -9,7 +10,16 @@ def home(request):
 
 def postlist(request):
     post = Post.objects.all()
-    context = {"post": post}
+    paginator = Paginator(post, 3)
+    page = request.GET.get("page")
+    try:
+        post = paginator.page(page)
+    except PageNotAnInteger:
+        post = paginator.page(1)
+    except EmptyPage:
+        post = paginator.page(paginator.num_pages)
+
+    context = {"post": post, 'page': page}
     return render(request, 'post_list.html', context)
 
 
