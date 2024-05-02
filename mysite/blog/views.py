@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .forms import AccountForm
 
+
+async def method_name():
+    pass
 
 def home(request):
     return HttpResponse("Home Page")
@@ -27,3 +31,13 @@ def postdetail(request, postid):
     post = Post.objects.get(id=postid)
     context = {"post": post}
     return render(request, 'post_details.html', context)
+
+
+def users(request):
+    if request.method == "POST":
+        form = AccountForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = AccountForm()
+    return render(request, 'account.html', {"form": form})
