@@ -9,6 +9,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-    
-class Account(models.Model):
-    phone = models.CharField(max_length=11)

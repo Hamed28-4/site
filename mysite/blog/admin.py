@@ -5,8 +5,3 @@ from .models import Post, Account
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'date', 'time')
     list_filter = ('date',)
-
-@admin.register(Account)
-class AccountAdmin(admin.ModelAdmin):
-    list_display = ('phone',)
-
