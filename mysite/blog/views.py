@@ -31,14 +31,3 @@ def postdetail(request, postid):
     post = Post.objects.get(id=postid)
     context = {"post": post}
     return render(request, 'post_details.html', context)
-
-
-def users(request):
-    
-    if request.method == "POST":
-        form = AccountForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = AccountForm()
-    return render(request, 'account.html', {"form": form})
