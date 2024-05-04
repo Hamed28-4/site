@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from .forms import AccountForm
-
 
 async def method_name():
     pass
